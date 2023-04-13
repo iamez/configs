@@ -1,0 +1,56 @@
+;; .stumpwmrc - StumpWM configuration file
+
+;; Load required modules
+(load-module "stumpwm-contrib" "hints")
+(load-module "stumpwm-contrib" "repl")
+
+;; Set the default frame parameters
+(setf *default-frame-style* "tiled")
+(setf *default-frame-width* 80)
+(setf *default-frame-height* 40)
+(setf *default-frame-padding* 0)
+
+;; Set the default window parameters
+(setf *default-window-style* "minimal")
+
+;; Set the default terminal emulator and shell
+(setf *terminal-emulator* "xterm")
+(setf *terminal-command* "xterm")
+
+;; Set the default font and font size
+(setf *font* "xft:Monospace:size=12")
+
+;; Set the default colors
+(setf *foreground-color* "white")
+(setf *background-color* "black")
+
+;; Set keybindings
+
+;; Example keybindings for moving focus
+(define-key *root-map* (kbd "C-j") "focus-down")
+(define-key *root-map* (kbd "C-k") "focus-up")
+(define-key *root-map* (kbd "C-h") "focus-left")
+(define-key *root-map* (kbd "C-l") "focus-right")
+
+;; Example keybindings for window management
+(define-key *root-map* (kbd "C-t C-c") "close-window")
+(define-key *root-map* (kbd "C-t C-q") "delete-window")
+(define-key *root-map* (kbd "C-t C-s") "split-window-vertically")
+(define-key *root-map* (kbd "C-t C-v") "split-window-horizontally")
+(define-key *root-map* (kbd "C-t C-f") "fullscreen-window")
+(define-key *root-map* (kbd "C-t C-m") "maximize-window")
+
+;; Example keybindings for switching workspaces
+(define-key *root-map* (kbd "C-t 1") "setf current-workspace-index 0")
+(define-key *root-map* (kbd "C-t 2") "setf current-workspace-index 1")
+(define-key *root-map* (kbd "C-t 3") "setf current-workspace-index 2")
+;; Add more keybindings for additional workspaces as needed
+
+;; Example keybindings for other commands
+(define-key *root-map* (kbd "C-t C-r") "restart-stumpwm")
+(define-key *root-map* (kbd "C-t C-q") "quit-stumpwm")
+(define-key *root-map* (kbd "C-t C-e") "run-shell-command")
+
+;; Custom keybindings can be added or modified as needed
+
+;; End of .stumpwmrc
